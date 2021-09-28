@@ -158,36 +158,36 @@
 								-->
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
 									<li class="active"><!-- HOME -->
-										<a href="#home">
+										<a id="home-nav" href="index.html">
 											HOME
 										</a>
 									</li>
 									<li class="dropdown"><!-- SERVICES -->
-										<a href="index.html#services">
+										<a id="services-nav" href="index.html#services">
 											SERVICES
 										</a>
 										<div class="dropdown-content">
-											<a href="residential-page.html">RESIDENTIAL</a>
-											<a href="commercial-page.html">COMMERCIAL</a>
+											<a href="residential.html">RESIDENTIAL</a>
+											<a href="commercial.html">COMMERCIAL</a>
 										</div>
 									</li>
 									<li><!-- WORK -->
-										<a href="#work">
+										<a id="portfolio-nav" href="#portfolio">
 											PORTFOLIO
 										</a>
 									</li>
 									<li><!-- NEWS -->
-										<a href="#news">
+										<a id="news-nav" href="#news">
 											NEWS
 										</a>
 									</li>
 									<li><!-- CLIENTS -->
-										<a href="#clients">
+										<a id="clients-nav" href="#clients">
 											CLIENTS
 										</a>
 									</li>
 									<li><!-- CONTACT -->
-										<a href="#contact">
+										<a id="contact-nav" href="#contact">
 											CONTACT
 										</a>
 									</li>
@@ -286,7 +286,7 @@
 								data-endelementdelay="0.1"
 								data-endspeed="500"
 								style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">
-									<a class="btn btn-danger btn-lg" href="quote-page.html">GET A QUOTE &nbsp; <i class="fa fa-angle-right"></i></a>
+									<a class="btn btn-danger btn-lg" href="quote.html">GET A QUOTE &nbsp; <i class="fa fa-angle-right"></i></a>
 							</div>
 						</li>
 					
@@ -439,14 +439,14 @@
 							<img class="img-fluid" src="assets/image/Rocket_Elevator_Assets/AdobeStock_130711085.jpeg" alt="img" />
 							<h3 class="mt-10">Best Elevator Residential</h3>
 							<p>Our company offers a service for residential buildings.</p>
-							<a href="residential-page.html" class="btn btn-default">READ MORE</a>
+							<a href="residential.html" class="btn btn-default">READ MORE</a>
 						</div>
 
 						<div class="col-sm-4">
 							<img class="img-fluid" src="assets/image/Rocket_Elevator_Assets/AdobeStock_146216308.jpeg" alt="img" />
 							<h3 class="mt-10">The Way to go to your Stage</h3>
 							<p>Our company offers a service for commercial buildings.</p>
-							<a href="commercial-page.html" class="btn btn-default">READ MORE</a>
+							<a href="commercial.html" class="btn btn-default">READ MORE</a>
 						</div>
 
 					</div>
@@ -466,7 +466,7 @@
 
 					<div class="text-center">
 						<h2 class="fs-40 fw-300">In Business Since 1976</h2>
-						<a class="btn btn-default btn-lg" href="quote-page.html">GET A QUOTE <i class="fa fa-angle-right"></i></a> 
+						<a class="btn btn-default btn-lg" href="quote.html">GET A QUOTE <i class="fa fa-angle-right"></i></a> 
 						&nbsp; OR &nbsp; 
 						<a class="btn btn-danger btn-lg" href="#contact">CONTACT US <i class="fa fa-angle-right"></i></a>
 					</div>
@@ -479,7 +479,7 @@
 
 
 			<!-- PORTFOLIO -->
-			<section id="work">
+			<section id="portfolio">
 				<div class="container">
 
 					<div class="heading-title heading-dotted text-center">
@@ -521,7 +521,7 @@
 									</figure>
 
 									<div class="item-box-desc">
-										<h3>Design for Banque Nationale</h3>
+										<h3>Best Elevetor Design of the Year</h3>
 										<ul class="list-inline categories m-0">
 											<li><a href="#">Award</a></li>
 										</ul>
@@ -552,7 +552,7 @@
 									</figure>
 
 									<div class="item-box-desc">
-										<h3>Microsoft Elevator</h3>
+										<h3>Best Elevetor 2021</h3>
 										<ul class="list-inline categories m-0">
 											<li><a href="#">Award</a></li>
 										</ul>
@@ -886,9 +886,9 @@
 					<div class="owl-carousel text-center owl-testimonial m-0" data-plugin-options='{"singleItem": true, "autoPlay": 3500, "navigation": false, "pagination": true, "transitionStyle":"fade"}'>
 						<div class="testimonial">
 							<figure>
-								<img class="rounded" src="assets/image/Rocket_Elevator_Assets/David.JPG" alt="" />
+								<img class="rounded" src="assets/image/Rocket_Elevator_Assets/CEO.JPG" alt="" />
 							</figure>
-							<div class="testimonial-content p-0">
+							<div id="ceo" class="testimonial-content p-0">
 								<p class="lead">Our job is to give the best possible service to our customers and the best possible quality of product.</p>
 								<cite>
 									David Boutin
@@ -896,9 +896,9 @@
 								</cite>
 							</div>
 						</div>
-						<div class="testimonial">
+						<div id="employee-of-the-month" class="testimonial">
 							<figure>
-								<img class="rounded" src="assets/image/Rocket_Elevator_Assets/Employee.jpg" alt="" />
+								<img class="rounded" src="assets/image/Rocket_Elevator_Assets/employee-of-the-month.jpg" alt="" />
 							</figure>
 							<div class="testimonial-content p-0">
 								<p class="lead">I am very happy to work for Rocket Elevators and love to see happy customers after contacting us.</p>
@@ -959,10 +959,7 @@
 									30th Aug 2021
 								</li>
 								<li>
-									<a href="https://www.forbes.com/health/healthy-aging/best-home-elevators">
-										<i class="fa fa-comments"></i> 
-										3
-									</a>
+									<a href="https://www.forbes.com/health/healthy-aging/best-home-elevators"></a>
 								</li>
 							</ul>
 						</div>
@@ -979,10 +976,7 @@
 									21th Sep 2021
 								</li>
 								<li>
-									<a href="https://www.stillwatercurrent.com/smart-elevator-automation-system-market-size-global-trends-growth-opportunities-market-share-and-market-forecast-to-2027/">
-										<i class="fa fa-comments"></i> 
-										15
-									</a>
+									<a href="https://www.stillwatercurrent.com/smart-elevator-automation-system-market-size-global-trends-growth-opportunities-market-share-and-market-forecast-to-2027/"></a>
 								</li>
 							</ul>
 						</div>
@@ -999,10 +993,7 @@
 									1th Sep 2021
 								</li>
 								<li>
-									<a href="https://www.cbc.ca/news/canada/thunder-bay/thunder-bay-elevator-1.6161292">
-										<i class="fa fa-comments"></i> 
-										3
-									</a>
+									<a href="https://www.cbc.ca/news/canada/thunder-bay/thunder-bay-elevator-1.6161292"></a>
 								</li>
 							</ul>
 						</div>
@@ -1019,10 +1010,7 @@
 									16th Sep 2021
 								</li>
 								<li>
-									<a href="https://www.gjsentinel.com/news/colorado/tk-elevator-enhances-tenant-experience-at-prominent-denver-high-rise-building-with-installation-of-agile/article_8d52fb42-386f-5db6-95d9-e5f819925827.html">
-										<i class="fa fa-comments"></i> 
-										2
-									</a>
+									<a href="https://www.gjsentinel.com/news/colorado/tk-elevator-enhances-tenant-experience-at-prominent-denver-high-rise-building-with-installation-of-agile/article_8d52fb42-386f-5db6-95d9-e5f819925827.html"></a>
 								</li>
 							</ul>
 						</div>
@@ -1038,10 +1026,7 @@
 									5th April 2021
 								</li>
 								<li>
-									<a href="https://marker.medium.com/the-office-elevator-is-about-to-be-packed-again-can-otis-calm-our-nerves-7df890761684">
-										<i class="fa fa-comments"></i> 
-										10
-									</a>
+									<a href="https://marker.medium.com/the-office-elevator-is-about-to-be-packed-again-can-otis-calm-our-nerves-7df890761684"></a>
 								</li>
 							</ul>
 						</div>
@@ -1057,10 +1042,7 @@
 									29th Jan 2017
 								</li>
 								<li>
-									<a href="https://www.wallpaper.com/design/otis-elevators-reach-new-heights#comments">
-										<i class="fa fa-comments"></i> 
-										3
-									</a>
+									<a href="https://www.wallpaper.com/design/otis-elevators-reach-new-heights#comments"></a>
 								</li>
 							</ul>
 						</div>
@@ -1080,62 +1062,62 @@
 
 					<ul class="row clients-dotted list-inline">
 						<li class="col-md-3 col-sm-3 col-6">
-							<a href="#">
+							<a href="https://www.apple.com">
 								<img class="img-fluid img-client" src="assets/image/Rocket_Elevator_Assets/Brands/1.png" alt="client" />
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a href="#">
+							<a href="https://www.microsoft.com">
 								<img class="img-fluid img-client" src="assets/image/Rocket_Elevator_Assets/Brands/2.png" alt="client" />
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a href="#">
+							<a href="https://www.stm.info/fr">
 								<img class="img-fluid img-client" src="assets/image/Rocket_Elevator_Assets/Brands/3.png" alt="client" />
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a href="#">
+							<a href="https://montreal.ca/">
 								<img class="img-fluid img-client" src="assets/image/Rocket_Elevator_Assets/Brands/4.png" alt="client" />
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a href="#">
+							<a href="https://www.artistikinc.com/">
 								<img class="img-fluid img-client" src="assets/image/Rocket_Elevator_Assets/Brands/5.png" alt="client" />
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a href="#">
+							<a href="https://www.ibm.com">
 								<img class="img-fluid img-client" src="assets/image/Rocket_Elevator_Assets/Brands/6.png" alt="client" />
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a href="#">
+							<a href="https://www.cibc.com">
 								<img class="img-fluid img-client" src="assets/image/Rocket_Elevator_Assets/Brands/7.png" alt="client" />
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a href="#">
+							<a href="https://www.bnc.ca/">
 								<img class="img-fluid img-client" src="assets/image/Rocket_Elevator_Assets/Brands/8.png" alt="client" />
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a href="#">
+							<a href="https://www.google.com/">
 								<img class="img-fluid img-client" src="assets/image/Rocket_Elevator_Assets/Brands/9.png" alt="client" />
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a href="#">
+							<a href="https://twitter.com/">
 								<img class="img-fluid img-client" src="assets/image/Rocket_Elevator_Assets/Brands/10.png" alt="client" />
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a href="#">
+							<a href="https://www.facebook.com/">
 								<img class="img-fluid img-client" src="assets/image/Rocket_Elevator_Assets/Brands/11.png" alt="client" />
 							</a>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a href="#">
+							<a href="https://www.amazon.ca/">
 								<img class="img-fluid img-client" src="assets/image/Rocket_Elevator_Assets/Brands/12.png" alt="client" />
 							</a>
 						</li>
@@ -1216,29 +1198,29 @@
 									<input type="hidden" name="action" value="contact_send" />
 
 									<div class="row">
-											<div class="col-md-4">
+											<div id="name" class="col-md-4">
 												<label for="contact:name">Full Name *</label>
 												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
 											</div>
-											<div class="col-md-4">
+											<div id="email" class="col-md-4">
 												<label for="contact:email">E-mail Address *</label>
 												<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
 											</div>
-											<div class="col-md-4">
+											<div id="phone" class="col-md-4">
 												<label for="contact:phone">Phone</label>
 												<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
 											</div>
-											<div class="col-md-4">
+											<div id="compagny_name" class="col-md-4">
 												<label for="contact:nameCompagny">Name Compagny</label>
 												<input type="text" value="" class="form-control" name="contact[nameCompagny]" id="contact:nameCompagny">
 											</div>
 									</div>
 									<div class="row">
-											<div class="col-md-8">
+											<div id="project_name" class="col-md-8">
 												<label for="contact:nameProject">Name of the Project *</label>
 												<input required type="text" value="" class="form-control" name="contact[nameProject][required]" id="contact:nameProject">
 											</div>
-											<div class="col-md-4">
+											<div id="department" class="col-md-4">
 												<label for="contact_department">Department</label>
 												<select class="form-control pointer" name="contact[department]">
 													<option value="">--- Select ---</option>
@@ -1249,17 +1231,17 @@
 											</div>
 									</div>
 									<div class="row">
-											<div class="col-md-12">
+											<div id="project_description" class="col-md-12">
 												<label for="contact:description">Description of Project *</label>
 												<textarea required maxlength="10000" rows="4" class="form-control" name="contact[description]" id="contact:description"></textarea>
 											</div>
-											<div class="col-md-12">
+											<div id="message" class="col-md-12">
 												<label for="contact:message">Message *</label>
 												<textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
 											</div>
 									</div>
 									<div class="row">
-											<div class="col-md-12">
+											<div id="attachment" class="col-md-12">
 												<label for="contact:attachment">File Attachment</label>
 
 												<!-- custom file upload -->
@@ -1306,8 +1288,8 @@
 							<hr />
 
 							<p>
-								<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 4468 Wellington St Suite 204, Verdun, Quebec, Canada</span>
-								<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:1 800-887-2497">+1 800-887-2497</a></span>
+								<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 4468 Wellington St Suite 204, Verdun, Québec H4G 1W5</span>
+								<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:(418)555-1234">(418) 555-1234</a></span>
 								<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:info@codeboxx.biz">info@codeboxx.biz</a></span>
 							</p>
 
@@ -1337,9 +1319,9 @@
 
 							<!-- Small Description -->
 							<p>
-								We are one the best when we talk about an elevator. whether it is installation, maintenance or design, we guarantee the best for us customer.
+								We have the conviction that we create the most innovative and reliable products on the market. Contact us today for any questions you might have.
 							</p>
-							<h2>1 (800) 887-2497</h2>
+							<h2>(418) 555-1234</h2>
 						</div>
 						<!-- /col #1 -->
 
