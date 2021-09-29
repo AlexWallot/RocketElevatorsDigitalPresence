@@ -100,17 +100,15 @@ function numberOfElevator() {
 function numberElevatorResidential() {
     var apartment = document.getElementsByClassName("residential")[0].getElementsByTagName("input")[0].value;
     var stage = document.getElementsByClassName("residential")[0].getElementsByTagName("input")[1].value;
-    var moy = Math.round(apartment/stage);
-    numElevator = Math.round(moy/6);
-    var colums = numElevator;
+    var moy = Math.ceil(apartment/stage);
+    numElevator = Math.ceil(moy/6);
+
     if (numElevator == 0) {
         numElevator++;
     }
-    if (stage >= 20 == true) {
-        var enumFor = Math.round(stage / 20);
-        for (let index = 0; index < enumFor; index++) {
-            numElevator += colums;
-        }
+    if (stage > 20 == true) {
+        var column = Math.ceil(stage / 20);
+        numElevator *= column;
     }
 
     document.getElementsByClassName("result")[0].getElementsByTagName("p")[0].innerHTML=numElevator;
@@ -137,13 +135,14 @@ function numberElevatorCorporate() {
     numElevator = Math.round(totalOccup/1000);
         if (numElevator == 0) {
             numElevator++;
-        }   
+        }
 
-    elevatorColumns = Math.round(totalFloors/20);
+    elevatorColumns = Math.ceil(totalFloors/20);
     if (elevatorColumns == 0) {
         elevatorColumns++;
     }
-    var averageElCol = numElevator/elevatorColumns;
+
+    var averageElCol = Math.ceil(numElevator/elevatorColumns);
     
     document.getElementsByClassName("result")[0].getElementsByTagName("p")[0].innerHTML=averageElCol*elevatorColumns;
 
@@ -152,9 +151,9 @@ function numberElevatorCorporate() {
 
 /* Caculate the number of recommanded elevators for hybrid */
 function numberElevatorHybrid() {
-    var maxOccup = document.getElementsByClassName("hybrid")[0].getElementsByTagName("input")[4].value;
-    var floors = document.getElementsByClassName("hybrid")[0].getElementsByTagName("input")[1].value;
-    var basement = document.getElementsByClassName("hybrid")[0].getElementsByTagName("input")[2].value;
+    var maxOccup = document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[4].value;
+    var floors = document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[1].value;
+    var basement = document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[2].value;
 
     var totalFloors = parseInt(floors) + parseInt(basement);
 
@@ -163,13 +162,14 @@ function numberElevatorHybrid() {
     numElevator = Math.round(totalOccup/1000);
         if (numElevator == 0) {
             numElevator++;
-        }   
+        }
 
-    elevatorColumns = Math.round(totalFloors/20);
+    elevatorColumns = Math.ceil(totalFloors/20);
     if (elevatorColumns == 0) {
         elevatorColumns++;
     }
-    var averageElCol = numElevator/elevatorColumns;
+
+    var averageElCol = Math.ceil(numElevator/elevatorColumns);
     
     document.getElementsByClassName("result")[0].getElementsByTagName("p")[0].innerHTML=averageElCol*elevatorColumns;
 
