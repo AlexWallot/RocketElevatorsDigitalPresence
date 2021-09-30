@@ -77,169 +77,160 @@ function displayNone() {
     }
 }
 
-/* Caculate the number of recommanded elevators the client need */
+/* Calculate the number of recommanded elevators the client need */
 function numberOfElevator() {
-    var numElevator = 0;
 
     if (document.getElementById("type").value == "residential") {
-        numberElevatorResidential();
-        
+        var type = getType();
+        getRensidentialAPIObject(document.getElementsByClassName("residential")[0].getElementsByTagName("input")[0].value,
+                                 document.getElementsByClassName("residential")[0].getElementsByTagName("input")[1].value,
+                                 type);
+          
     } else if (document.getElementById("type").value == "commercial") {
-        numberElevatorCommercial();
+        var type = getType();
+        getCommercialAPIObject(document.getElementsByClassName("commercial")[0].getElementsByTagName("input")[4].value,
+                               type);
         
     }else if (document.getElementById("type").value == "corporate") {
-        numberElevatorCorporate();
+        var type = getType();
+        getCorporateAPIObject(document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[1].value,
+                              document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[2].value,
+                              document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[4].value,
+                              type);
         
     }else if (document.getElementById("type").value == "hybrid") {
-        numberElevatorHybrid();
+        var type = getType();
+        getHybridAPIObject(document.getElementsByClassName("hybrid")[0].getElementsByTagName("input")[1].value,
+                           document.getElementsByClassName("hybrid")[0].getElementsByTagName("input")[2].value,
+                           document.getElementsByClassName("hybrid")[0].getElementsByTagName("input")[4].value,
+                           type);
     }
     return numElevator;
 }
 
-/* Caculate the number of recommanded elevators for residential */
-function numberElevatorResidential() {
-    var apartment = document.getElementsByClassName("residential")[0].getElementsByTagName("input")[0].value;
-    var stage = document.getElementsByClassName("residential")[0].getElementsByTagName("input")[1].value;
-    var moy = Math.ceil(apartment/stage);
-    numElevator = Math.ceil(moy/6);
-
-    if (numElevator == 0) {
-        numElevator++;
-    }
-    if (stage > 20 == true) {
-        var column = Math.ceil(stage / 20);
-        numElevator *= column;
-    }
-
-    document.getElementsByClassName("result")[0].getElementsByTagName("p")[0].innerHTML=numElevator;
-    return numElevator;
-}
-
-/* Caculate the number of recommanded elevators for commercial */
-function numberElevatorCommercial() {
-    var numElevator = document.getElementsByClassName("commercial")[0].getElementsByTagName("input")[4].value;
-    document.getElementsByClassName("result")[0].getElementsByTagName("p")[0].innerHTML=numElevator;
-    return numElevator;
-}
-
-/* Caculate the number of recommanded elevators for corporate */
-function numberElevatorCorporate() {
-    var maxOccup = document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[4].value;
-    var floors = document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[1].value;
-    var basement = document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[2].value;
-
-    var totalFloors = parseInt(floors) + parseInt(basement);
-
-    var totalOccup = maxOccup*totalFloors;
-
-    numElevator = Math.round(totalOccup/1000);
-        if (numElevator == 0) {
-            numElevator++;
-        }
-
-    elevatorColumns = Math.ceil(totalFloors/20);
-    if (elevatorColumns == 0) {
-        elevatorColumns++;
-    }
-
-    var averageElCol = Math.ceil(numElevator/elevatorColumns);
-    
-    document.getElementsByClassName("result")[0].getElementsByTagName("p")[0].innerHTML=averageElCol*elevatorColumns;
-
-    return averageElCol*elevatorColumns;
-}
-
-/* Caculate the number of recommanded elevators for hybrid */
-function numberElevatorHybrid() {
-    var maxOccup = document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[4].value;
-    var floors = document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[1].value;
-    var basement = document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[2].value;
-
-    var totalFloors = parseInt(floors) + parseInt(basement);
-
-    var totalOccup = maxOccup*totalFloors;
-
-    numElevator = Math.round(totalOccup/1000);
-        if (numElevator == 0) {
-            numElevator++;
-        }
-
-    elevatorColumns = Math.ceil(totalFloors/20);
-    if (elevatorColumns == 0) {
-        elevatorColumns++;
-    }
-
-    var averageElCol = Math.ceil(numElevator/elevatorColumns);
-    
-    document.getElementsByClassName("result")[0].getElementsByTagName("p")[0].innerHTML=averageElCol*elevatorColumns;
-
-    return averageElCol*elevatorColumns;
-}
-
-function getPrice() {
+function getType() {
     if (document.getElementById("standard").checked) {
-        getStandardPrice();
-    } else if (document.getElementById("premium").checked) {
-        getPremiumPrice();
-    } else if (document.getElementById("excelium").checked) {
-        getExceliumPrice();
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[1].innerHTML = dollarCAN.format(STANDARD_PRICE);
+        return 'standard';
+    }
+    if (document.getElementById("premium").checked) {
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[1].innerHTML = dollarCAN.format(PREMIUM_PRICE);
+        return 'premium';
+    }
+    if (document.getElementById("excelium").checked) {
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[1].innerHTML = dollarCAN.format(EXCELIUM_PRICE);
+        return 'excelium';
     }
 }
 
-function getStandardPrice() {
-    document.getElementsByClassName("result")[0].getElementsByTagName("p")[1].innerHTML=dollarCAN.format(STANDARD_PRICE);
-    var total = getTotalElevatorPrice();
-    var totalFees = getStandardFees(total);
-    document.getElementsByClassName("result")[0].getElementsByTagName("p")[4].innerHTML=dollarCAN.format(total+totalFees);
-}
+function getRensidentialAPIObject(apartment,floor,type) {
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var request = new XMLHttpRequest()
 
-function getPremiumPrice() {
-    document.getElementsByClassName("result")[0].getElementsByTagName("p")[1].innerHTML=dollarCAN.format(PREMIUM_PRICE);
-    var total = getTotalElevatorPrice();
-    var totalFees = getPremiumFees(total);
-    document.getElementsByClassName("result")[0].getElementsByTagName("p")[4].innerHTML=dollarCAN.format(total+totalFees);
-}
-
-function getExceliumPrice() {
-    document.getElementsByClassName("result")[0].getElementsByTagName("p")[1].innerHTML=dollarCAN.format(EXCELIUM_PRICE);
-    var total = getTotalElevatorPrice();
-    var totalFees = getExceliumFees(total);
-    document.getElementsByClassName("result")[0].getElementsByTagName("p")[4].innerHTML=dollarCAN.format(total+totalFees);
-}
-
-function getTotalElevatorPrice() {
-    var total = 0;
-    if (document.getElementById("standard").checked) {
-        total = parseInt(document.getElementsByClassName("result")[0].getElementsByTagName("p")[0].innerHTML) * STANDARD_PRICE;
-        document.getElementsByClassName("result")[0].getElementsByTagName("p")[2].innerHTML=dollarCAN.format(total);
-        return total;
-    }else if (document.getElementById("premium").checked) {
-        total = parseInt(document.getElementsByClassName("result")[0].getElementsByTagName("p")[0].innerHTML) * PREMIUM_PRICE;
-        document.getElementsByClassName("result")[0].getElementsByTagName("p")[2].innerHTML=dollarCAN.format(total);
-        return total;
-    }else if (document.getElementById("excelium").checked) {
-        total = parseInt(document.getElementsByClassName("result")[0].getElementsByTagName("p")[0].innerHTML) * EXCELIUM_PRICE;
-        document.getElementsByClassName("result")[0].getElementsByTagName("p")[2].innerHTML=dollarCAN.format(total);
-        return total;
+    if (apartment === '') {
+        apartment = 0;
+    }else if (floor === '') {
+        floor = 0;
     }
-    return total;
+
+    // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'http://localhost:3000/api/residential?apartment='+apartment+'&floor='+floor+'&type='+type+'', true)
+
+    request.setRequestHeader('Content-Type', 'application/xml');
+    var data = request.onload = function () {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response);
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[0].innerHTML = data.numElevator;
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[2].innerHTML = dollarCAN.format(data.totalPriceElevator);
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[3].innerHTML = dollarCAN.format(data.fees);
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[4].innerHTML = dollarCAN.format(data.fullPrice);
+        console.log(data)
+    }
+
+    // Send request
+    request.send()
 }
 
-function getStandardFees(total) {
-    var totalFees = total * STANDARD_FEES;
-    console.log(totalFees.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-    document.getElementsByClassName("result")[0].getElementsByTagName("p")[3].innerHTML=dollarCAN.format(totalFees);
-    return totalFees;
+function getCommercialAPIObject(numElevator,type) {
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var request = new XMLHttpRequest()
+
+    // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'http://localhost:3000/api/commercial?elevator='+ numElevator +'&type='+type+'', true)
+
+
+    request.setRequestHeader('Content-Type', 'application/xml');
+    var data = request.onload = function () {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response);
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[0].innerHTML = data.numElevator;
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[2].innerHTML = dollarCAN.format(data.totalPriceElevator);
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[3].innerHTML = dollarCAN.format(data.fees);
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[4].innerHTML = dollarCAN.format(data.fullPrice);
+        console.log(data)
+    }
+
+    // Send request
+    request.send()
 }
 
-function getPremiumFees(total) {
-    var totalFees = total * PREMIUM_FEES;
-    document.getElementsByClassName("result")[0].getElementsByTagName("p")[3].innerHTML=dollarCAN.format(totalFees);
-    return totalFees;
+function getCorporateAPIObject(floor,basement,maxOccup,type) {
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var request = new XMLHttpRequest()
+
+    if (floor === '') {
+        floor = 0;
+    }if (basement === '') {
+        basement = 0;
+    }if (maxOccup === '') {
+        maxOccup = 0;
+    }
+    
+    // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'http://localhost:3000/api/corporate?floor='+floor+'&basement='+basement+'&maxOccup='+maxOccup+'&type='+type+'', true)
+
+    request.setRequestHeader('Content-Type', 'application/xml');
+    var data = request.onload = function () {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response);
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[0].innerHTML = data.numElevator;
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[2].innerHTML = dollarCAN.format(data.totalPriceElevator);
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[3].innerHTML = dollarCAN.format(data.fees);
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[4].innerHTML = dollarCAN.format(data.fullPrice);
+        console.log(data)
+    }
+
+    // Send request
+    request.send()
 }
 
-function getExceliumFees(total) {
-    var totalFees = total * EXCELIUM_FEES;
-    document.getElementsByClassName("result")[0].getElementsByTagName("p")[3].innerHTML=dollarCAN.format(totalFees);
-    return totalFees;
+function getHybridAPIObject(floor,basement,maxOccup,type) {
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var request = new XMLHttpRequest()
+
+    if (floor === '') {
+        floor = 0;
+    }if (basement === '') {
+        basement = 0;
+    }if (maxOccup === '') {
+        maxOccup = 0;
+    }
+    
+    // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'http://localhost:3000/api/hybrid?floor='+floor+'&basement='+basement+'&maxOccup='+maxOccup+'&type='+type+'', true)
+
+    console.log('http://localhost:3000/api/hybrid?floor='+floor+'&basement='+basement+'&maxOccup='+maxOccup+'&type='+type+'');
+    request.setRequestHeader('Content-Type', 'application/xml');
+    var data = request.onload = function () {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response);
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[0].innerHTML = data.numElevator;
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[2].innerHTML = dollarCAN.format(data.totalPriceElevator);
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[3].innerHTML = dollarCAN.format(data.fees);
+        document.getElementsByClassName("result")[0].getElementsByTagName("p")[4].innerHTML = dollarCAN.format(data.fullPrice);
+        console.log(data)
+    }
+
+    // Send request
+    request.send()
 }
