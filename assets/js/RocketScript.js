@@ -151,9 +151,9 @@ function numberElevatorCorporate() {
 
 /* Caculate the number of recommanded elevators for hybrid */
 function numberElevatorHybrid() {
-    var maxOccup = document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[4].value;
-    var floors = document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[1].value;
-    var basement = document.getElementsByClassName("corporate")[0].getElementsByTagName("input")[2].value;
+    var maxOccup = document.getElementsByClassName("hybrid")[0].getElementsByTagName("input")[4].value;
+    var floors = document.getElementsByClassName("hybrid")[0].getElementsByTagName("input")[1].value;
+    var basement = document.getElementsByClassName("hybrid")[0].getElementsByTagName("input")[2].value;
 
     var totalFloors = parseInt(floors) + parseInt(basement);
 
