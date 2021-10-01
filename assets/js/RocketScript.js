@@ -1,6 +1,6 @@
 /** ********************************************** **
 	@Author			Alex Wallot
-	@Last Update	Friday, September 24, 2021
+	@Last Update	Friday, October 1, 2021
 
 	Description     This file is for all the function i 
                     gonna use in quote-page.html.
@@ -19,6 +19,7 @@ const EXCELIUM_FEES = 0.16;
 
 let dollarCAN = new Intl.NumberFormat("en-CA",{ style: 'currency', currency: 'CAD'});
 
+/* Display the input when the client choose type of building */
 function displayInputText(){
     displayNone();
     resetAll();
@@ -77,8 +78,8 @@ function displayNone() {
     }
 }
 
-/* Calculate the number of recommanded elevators the client need */
-function numberOfElevator() {
+/* Calculate and show all the result */
+function getPrice() {
 
     if (document.getElementById("type").value == "residential") {
         var type = getType();
@@ -108,6 +109,7 @@ function numberOfElevator() {
     return numElevator;
 }
 
+// get the type and show the radio button price the client choose in the result p
 function getType() {
     if (document.getElementById("standard").checked) {
         document.getElementsByClassName("result")[0].getElementsByTagName("p")[1].innerHTML = dollarCAN.format(STANDARD_PRICE);
@@ -123,6 +125,7 @@ function getType() {
     }
 }
 
+// get the object created by the api for Residential
 function getRensidentialAPIObject(apartment,floor,type) {
     // Create a request variable and assign a new XMLHttpRequest object to it.
     var request = new XMLHttpRequest()
@@ -151,6 +154,7 @@ function getRensidentialAPIObject(apartment,floor,type) {
     request.send()
 }
 
+// get the object created by the api for Commercial
 function getCommercialAPIObject(numElevator,type) {
     // Create a request variable and assign a new XMLHttpRequest object to it.
     var request = new XMLHttpRequest()
@@ -174,6 +178,7 @@ function getCommercialAPIObject(numElevator,type) {
     request.send()
 }
 
+// get the object created by the api for Corporate
 function getCorporateAPIObject(floor,basement,maxOccup,type) {
     // Create a request variable and assign a new XMLHttpRequest object to it.
     var request = new XMLHttpRequest()
@@ -204,6 +209,7 @@ function getCorporateAPIObject(floor,basement,maxOccup,type) {
     request.send()
 }
 
+// get the object created by the api for Hybrid
 function getHybridAPIObject(floor,basement,maxOccup,type) {
     // Create a request variable and assign a new XMLHttpRequest object to it.
     var request = new XMLHttpRequest()

@@ -255,19 +255,15 @@
 				<div class="residential">
 					<div class="number-of-apartment">
 						<label for="fApartment">Number of Apartment</label><br>
-						<input type="number" name="numberOfApartment" id="numberOfApartment" onchange="numberOfElevator()" required>
+						<input type="number" name="numberOfApartment" id="numberOfApartment" onchange="getPrice()" required>
 					</div>
 					<div class="number-of-floors">
 						<label for="fFloors">Number of Stage </label><br>
-						<input type="number" name="numberOfStage" id="numberOfStage" onchange="numberOfElevator()" required>
+						<input type="number" name="numberOfStage" id="numberOfStage" onchange="getPrice()" required>
 					</div>
 					<div class="number-of-basements">
 						<label for="fBasement">Number of Basement</label><br>
 						<input type="number" name="numberOfBasement" id="numberOfBasement" required>
-					</div>
-					<div class="number-of-elevators">
-						<label for="fNumberElevator">Number of Recommand Elevator</label><br>
-						<input type="number" name="numberOfReccomandElevator" id="numberOfReccomandElevator" readonly>
 					</div>
 				</div>
 				<div class="commercial">
@@ -289,7 +285,7 @@
 					</div>
 					<div class="number-of-elevators">
 						<label for="fElevator">Number of Elevator</label><br>
-						<input type="number" name="numberOfElevator" id="numberOfElevator" onchange="numberOfElevator()" required>
+						<input type="number" name="numberOfElevator" id="numberOfElevator" onchange="getPrice()" required>
 					</div>
 				</div>
 				<div class="corporate">
@@ -299,11 +295,11 @@
 					</div>
 					<div class="number-of-floors">
 						<label for="fFloors">Number of Floors</label><br>
-						<input type="number" name="numberOfFloors" id="numberOfFloors" onchange="numberOfElevator()" required>
+						<input type="number" name="numberOfFloors" id="numberOfFloors" onchange="getPrice()" required>
 					</div>
 					<div class="number-of-basements">
 						<label for="fBasement">Number of Basement</label><br>
-						<input type="number" name="numberOfBasement" id="numberOfBasement" onchange="numberOfElevator()" required>
+						<input type="number" name="numberOfBasement" id="numberOfBasement" onchange="getPrice()" required>
 					</div>
 					<div class="number-of-parking-spots">
 						<label for="fParking">Number of Parking Spots</label><br>
@@ -311,7 +307,7 @@
 					</div>
 					<div class="maximum-occupancy">
 						<label for="fMaxOccupation">Number of Maximum Occupancy</label><br>
-						<input type="number" name="MaxOccupancy" id="MaxOccupancy" onchange="numberOfElevator()" required>
+						<input type="number" name="MaxOccupancy" id="MaxOccupancy" onchange="getPrice()" required>
 					</div>
 				</div>
 				<div class="hybrid">
@@ -321,11 +317,11 @@
 					</div>
 					<div class="number-of-floors">
 						<label for="fFloors">Number of Floors</label><br>
-						<input type="number" name="numberOfFloors" id="numberOfFloors" onchange="numberOfElevator()" required>
+						<input type="number" name="numberOfFloors" id="numberOfFloors" onchange="getPrice()" required>
 					</div>
 					<div class="number-of-basements">
 						<label for="fBasement">Number of Basement</label><br>
-						<input type="number" name="numberOfBasement" id="numberOfBasement" onchange="numberOfElevator()" required>
+						<input type="number" name="numberOfBasement" id="numberOfBasement" onchange="getPrice()" required>
 					</div>
 					<div class="number-of-parking-spots">
 						<label for="fParking">Number of Parking Spots</label><br>
@@ -333,7 +329,7 @@
 					</div>
 					<div class="maximum-occupancy">
 						<label for="fMaxOccupation">Number of Maximum Occupancy</label><br>
-						<input type="number" name="MaxOccupancy" id="MaxOccupancy" onchange="numberOfElevator()" required>
+						<input type="number" name="MaxOccupancy" id="MaxOccupancy" onchange="getPrice()" required>
 					</div>
 					<div class="business-hours">
 						<label for="fBusinessHours">Number of Business Hours</label><br>
@@ -344,11 +340,11 @@
 			
 		    <div class="radioButton">
 				<p>Please select a range of elevator</p>
-				<input type="radio" id="standard" name="fav_language" value=7535 onchange="numberOfElevator()">
+				<input type="radio" id="standard" name="fav_language" value=7535 onchange="getPrice()">
   				<label for="html">STANDARD = $7,565</label><br>
-  				<input type="radio" id="premium" name="fav_language" value=12345 onchange="numberOfElevator()">
+  				<input type="radio" id="premium" name="fav_language" value=12345 onchange="getPrice()">
   				<label for="css">PREMIUM = $12,345</label><br>
-  				<input type="radio" id="excelium" name="fav_language" value=15400 onchange="numberOfElevator()">
+  				<input type="radio" id="excelium" name="fav_language" value=15400 onchange="getPrice()">
   				<label for="javascript">EXCELIUM = $15,400</label>
 			</div>
 			
