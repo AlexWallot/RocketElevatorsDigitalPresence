@@ -1,12 +1,10 @@
 /** ********************************************** **
 	@Author			Alex Wallot
-	@Last Update	Friday, September 24, 2021
+	@Last Update	Friday, October 1, 2021
 
 	Description     This file is for all the function i 
                     gonna use in quote-page.html.
 *************************************************** **/
-
-/* Display the input when the client choose type of building */
 
 
 const STANDARD_PRICE = 7565;
@@ -19,6 +17,8 @@ const EXCELIUM_FEES = 0.16;
 
 let dollarCAN = new Intl.NumberFormat("en-CA",{ style: 'currency', currency: 'CAD'});
 
+
+/* Display the input when the client choose type of building */
 function displayInputText(){
     displayNone();
     resetAll();
@@ -176,6 +176,7 @@ function numberElevatorHybrid() {
     return averageElCol*elevatorColumns;
 }
 
+// get all the price needed when you choose one of the option
 function getPrice() {
     if (document.getElementById("standard").checked) {
         getStandardPrice();
@@ -186,6 +187,7 @@ function getPrice() {
     }
 }
 
+// get price when the client choose standard in the radio button
 function getStandardPrice() {
     document.getElementsByClassName("result")[0].getElementsByTagName("p")[1].innerHTML=dollarCAN.format(STANDARD_PRICE);
     var total = getTotalElevatorPrice();
@@ -193,6 +195,7 @@ function getStandardPrice() {
     document.getElementsByClassName("result")[0].getElementsByTagName("p")[4].innerHTML=dollarCAN.format(total+totalFees);
 }
 
+// get price when the client choose Premium in the radio button
 function getPremiumPrice() {
     document.getElementsByClassName("result")[0].getElementsByTagName("p")[1].innerHTML=dollarCAN.format(PREMIUM_PRICE);
     var total = getTotalElevatorPrice();
@@ -200,6 +203,7 @@ function getPremiumPrice() {
     document.getElementsByClassName("result")[0].getElementsByTagName("p")[4].innerHTML=dollarCAN.format(total+totalFees);
 }
 
+// get price when the client choose Excelium in the radio button
 function getExceliumPrice() {
     document.getElementsByClassName("result")[0].getElementsByTagName("p")[1].innerHTML=dollarCAN.format(EXCELIUM_PRICE);
     var total = getTotalElevatorPrice();
@@ -207,6 +211,7 @@ function getExceliumPrice() {
     document.getElementsByClassName("result")[0].getElementsByTagName("p")[4].innerHTML=dollarCAN.format(total+totalFees);
 }
 
+// get the total price of elevator when you choose the option on the radio button
 function getTotalElevatorPrice() {
     var total = 0;
     if (document.getElementById("standard").checked) {
@@ -225,6 +230,7 @@ function getTotalElevatorPrice() {
     return total;
 }
 
+// get fees on total elevator price when you choose Standard
 function getStandardFees(total) {
     var totalFees = total * STANDARD_FEES;
     console.log(totalFees.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
@@ -232,12 +238,14 @@ function getStandardFees(total) {
     return totalFees;
 }
 
+// get fees on total elevator price when you choose Premium
 function getPremiumFees(total) {
     var totalFees = total * PREMIUM_FEES;
     document.getElementsByClassName("result")[0].getElementsByTagName("p")[3].innerHTML=dollarCAN.format(totalFees);
     return totalFees;
 }
 
+// get fees on total elevator price when you choose Excelium
 function getExceliumFees(total) {
     var totalFees = total * EXCELIUM_FEES;
     document.getElementsByClassName("result")[0].getElementsByTagName("p")[3].innerHTML=dollarCAN.format(totalFees);

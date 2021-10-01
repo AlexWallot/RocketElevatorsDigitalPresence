@@ -240,9 +240,10 @@
 
 			</div>
 
-			
+			<!-- FORM -->
 			<h1 style="text-align: center; margin-top: 5%;">GET YOUR QUOTE</h1>
 			<div class="form">
+				<!-- DROPDOWN LIST-->
 				<div class="select">
 					<select id="type" name="type" onchange="displayInputText();">
 				  	<option value="none" selected>Select</option>
@@ -252,6 +253,8 @@
 				  	<option value="hybrid">Hybrid</option>
 					</select>
 			  	</div>
+				<!-- DROPDOWN LIST-->
+
 				<div class="residential">
 					<div class="number-of-apartment">
 						<label for="fApartment">Number of Apartment</label><br>
@@ -264,10 +267,6 @@
 					<div class="number-of-basements">
 						<label for="fBasement">Number of Basement</label><br>
 						<input type="number" name="numberOfBasement" id="numberOfBasement" required>
-					</div>
-					<div class="number-of-elevators">
-						<label for="fNumberElevator">Number of Recommand Elevator</label><br>
-						<input type="number" name="numberOfReccomandElevator" id="numberOfReccomandElevator" readonly>
 					</div>
 				</div>
 				<div class="commercial">
@@ -342,6 +341,7 @@
 				</div>
 			</div>
 			
+			<!-- RADIO BUTTON -->
 		    <div class="radioButton">
 				<p>Please select a range of elevator</p>
 				<input type="radio" id="standard" name="fav_language" value=7535 onchange="getPrice()">
@@ -351,7 +351,9 @@
   				<input type="radio" id="excelium" name="fav_language" value=15400 onchange="getPrice()">
   				<label for="javascript">EXCELIUM = $15,400</label>
 			</div>
+			<!-- /RADIO BUTTON -->
 			
+			<!-- RESULT -->
 			<div class="result">
 				<div class="elevator-amounts">
 					<label for="fElevator">Number of Elevator</label><br>
@@ -374,7 +376,8 @@
 					<p id="finalPrice"></p>
 				</div>
 			</div>
-			<!--Form-->
+			<!-- /RESULT -->
+			<!-- /FORM-->
 			
 			<!-- FOOTER -->
 			<footer id="footer" style="margin-top: 5%;">
